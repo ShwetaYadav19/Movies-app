@@ -19,6 +19,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { Checkbox } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 
 const styles = theme => ({
@@ -74,6 +75,10 @@ class Home extends Component{
 
     artistsSelectHandler = event => {
         this.setState({artists : event.target.value});
+    }
+
+    applyClickHandler = event => {
+
     }
     render(){
         const { classes } = this.props
@@ -173,7 +178,12 @@ class Home extends Component{
                                   defaultValue=""
                                   InputLabelProps={{shrink : true}}
                                   />
-                            </FormControl>   
+                            </FormControl> 
+                            <FormControl className={classes.formControl}>
+                            <Button variant="contained" color="primary" onClick={this.applyClickHandler} >
+                                APPLY
+                            </Button> 
+                            </FormControl> 
                          </CardContent>  
                      </Card>  
                     </div>
