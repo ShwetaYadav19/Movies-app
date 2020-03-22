@@ -1,5 +1,7 @@
 import React ,{Component} from 'react';
+import ReactDOM from 'react-dom';
 import './Home.css';
+import Details from '../details/Details'
 import Header from '../../common/header/Header';
 import { withStyles } from '@material-ui/core/styles';
 import moviesData from '../../common/movieData';
@@ -80,6 +82,9 @@ class Home extends Component{
     applyClickHandler = event => {
 
     }
+    movieClickHandler = (movieId) => {
+        ReactDOM.render(<Details movieId={movieId}/>, document.getElementById('root'));
+    }
     render(){
         const { classes } = this.props
         return (
@@ -89,7 +94,7 @@ class Home extends Component{
              <header className={classes.upcomingMoviesHeading}>Upcoming Movies</header>
              <GridList cols = {5} className={classes.gridListUpcomingMovies} >
                {moviesData.map(movie => (
-                     <GridListTile key={movie.id}>
+                     <GridListTile  key={movie.id}>
                          <div className="container">
                             <img src={movie.poster_url} alt={movie.title} />
                             <GridListTileBar title={movie.title} />
@@ -101,7 +106,7 @@ class Home extends Component{
                     <div className="left">
                         <GridList cellHeight={350} cols={4} className={classes.gridListMain}>
                             {moviesData.map(movie => (
-                                <GridListTile className="released-movie-grid-item" key={"grid" + movie.id}>
+                                <GridListTile className="released-movie-grid-item" onClick={() => this.movieClickHandler(movie.id)} key={"grid" + movie.id}>
                                     <img src={movie.poster_url} className="movie-poster" alt={movie.title} />
                                     <GridListTileBar
                                         title={movie.title}
