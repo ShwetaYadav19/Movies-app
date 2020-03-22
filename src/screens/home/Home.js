@@ -10,7 +10,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import FormControl from '@material-ui/core/FormCOntrol';
+import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
@@ -49,7 +49,8 @@ const styles = theme => ({
     },
     title: {
         color: theme.palette.primary.light,
-    }        
+    } 
+   
  });
 
 class Home extends Component{
@@ -154,10 +155,20 @@ class Home extends Component{
                                  ))}
                                  </Select>
                               </FormControl>    
-                              <FormControl>
+                              <FormControl className={classes.formControl}>
                                   <TextField 
                                   id="releaseDateStart"
                                   label="Release Date Start"
+                                  type="date"
+                                  defaultValue=""
+                                  InputLabelProps={{shrink : true}}
+                                  />
+                            </FormControl> 
+                       
+                            <FormControl className={classes.formControl}>
+                                  <TextField 
+                                  id="releaseDateEnd"
+                                  label="Release Date End"
                                   type="date"
                                   defaultValue=""
                                   InputLabelProps={{shrink : true}}
