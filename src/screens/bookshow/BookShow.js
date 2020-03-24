@@ -16,6 +16,7 @@ import location from '../../common/location';
 import showDate from '../../common/showDate';
 import showTime from '../../common/showTime';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 
 class BookShow extends Component{
@@ -26,7 +27,10 @@ class BookShow extends Component{
             location : "",
             language : "",
             showTime : "",
-            showDate : ""
+            showDate : "",
+            tickets : 0,
+            availableTickets : 20,
+            unitPrice : 50
         }
     }
     backToHomeHandler = () => {
@@ -43,6 +47,9 @@ class BookShow extends Component{
     }
     showTimeChangeHandler = (e) => {
         this.setState({showTime : e.target.value})
+    }
+    ticketsChangeHandler = (e) => {
+        this.setState({tickets : e.target.value})
     }
 
     
@@ -105,6 +112,22 @@ class BookShow extends Component{
                        ))}
                       </Select>
                  </FormControl>
+
+
+                 <FormControl required className="formControl">
+                     <InputLabel htmlFor="tickets">Tickets : {this.state.availableTickets}
+                      </InputLabel> 
+                      <Input id="tickets" value={this.state.tickets !==0 ? this.state.tickets : ""} onChange={this.ticketsChangeHandler}>                      </Input>
+                 </FormControl><br/> <br/>
+                 <Typography >
+                   Unit Price : Rs.{this.state.unitPrice}
+                 </Typography> <br/> 
+                 <Typography >
+                   Total Price : Rs.{this.state.unitPrice*this.state.tickets}
+                 </Typography>  <br/>
+                 <Button variant="contained" onClick={this.bookShowHandler} color="primary">
+                     BOOK SHOW
+                 </Button> 
       
             </Card>    
           </div>
