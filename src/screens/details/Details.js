@@ -9,7 +9,7 @@ import Youtube from 'react-youtube';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import StarBorderIcon from '@material-ui/icons';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 
 class Details extends Component{
@@ -75,7 +75,7 @@ class Details extends Component{
               else {
                   starNode.color = "black";
               }
-              this.starIconList.push(starNode);
+              starIconList.push(starNode);
 
           }
           this.setState({starIcons : starIconList});
@@ -91,7 +91,7 @@ class Details extends Component{
         }
         
         return(<div className="details">
-            <Header/>
+            <Header showBookShowButton="true"/>
             <div className="back">
                 <Typography onClick={this.backToHomeHandler}>
                     &#60; Back To Home
