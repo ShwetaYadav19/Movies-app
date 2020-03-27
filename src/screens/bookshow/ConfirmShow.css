@@ -1,0 +1,43 @@
+.bold{
+    font-weight: bold;
+    width: 150px;
+}
+
+.bolder{
+    font-weight: bolder;
+    width: 150px;
+}
+
+.back {
+    cursor: pointer;
+}
+
+.coupon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#couponcode{
+    width : 70%
+}
+#couponConfirmButton{
+    width: 30%;
+}
+
+.cardStyle {
+    width: 280px;
+    padding: 32px 64px 32px 64px;
+    margin: auto;
+    text-align: left;
+
+}
+
+.dispNone {
+    display: none;
+}
+
+.dispBlock {
+    display: block;
+}

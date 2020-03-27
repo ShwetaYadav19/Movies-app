@@ -18,6 +18,7 @@ import showTime from '../../common/showTime';
 import TextField from '@material-ui/core/TextField';
 import FormHelpertext from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
+import ConfirmShow from './ConfirmShow';
 
 
 class BookShow extends Component{
@@ -69,6 +70,13 @@ class BookShow extends Component{
         this.setState({ showTimeRequired: "dispBlock" }) : this.setState({ showTimeRequired: "dispNone" });
         this.state.tickets === 0 ? 
         this.setState({ ticketsRequired: "dispBlock" }) : this.setState({ ticketsRequired: "dispNone" });
+
+        if(this.state.location !== "" && this.state.language !== "" && this.state.showDate !== ""
+         && this.state.showTime !== "" &&  this.state.tickets !== 0  ){
+            ReactDOM.render(<ConfirmShow location={this.state.location} language={this.state.language}
+            showDate={this.state.showDate} showTime={this.state.showTime} tickets={this.state.tickets} unitPrice={this.state.unitPrice}
+            totalPrice={this.state.tickets*this.state.unitPrice}/>,document.getElementById('root'))
+         }
     }
 
     
